@@ -113,12 +113,23 @@ void SemanticIntegratorBase::setSemanticProbabilities() {
   CHECK_NEAR(semantic_log_likelihood_.diagonal().sum(),
              kTotalNumberOfLabels * log_match_probability_,
              100 * vxb::kFloatEpsilon);
+  /*
+  //With 10 classes in orignal implementation, the diffrence was 1000 * vxb::kFloatEpsilon.
   CHECK_NEAR(
       semantic_log_likelihood_.sum(),
       kTotalNumberOfLabels * log_match_probability_ +
           std::pow(kTotalNumberOfLabels, 2) * log_non_match_probability_ -
           kTotalNumberOfLabels * log_non_match_probability_,
       1000 * vxb::kFloatEpsilon);
+  */
+
+  //With 150 classes, the values drift apart, thus increasing tolerance to 1000000*vxb::kFloatEpsilon.
+  CHECK_NEAR(
+      semantic_log_likelihood_.sum(),
+      kTotalNumberOfLabels * log_match_probability_ +
+          std::pow(kTotalNumberOfLabels, 2) * log_non_match_probability_ -
+          kTotalNumberOfLabels * log_non_match_probability_,
+      1000000 * vxb::kFloatEpsilon);
 }
 
 // TODO(Toni): Complete this function!!

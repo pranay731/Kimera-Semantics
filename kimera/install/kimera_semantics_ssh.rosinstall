@@ -35,5 +35,5 @@
     local-name: voxblox
     uri: git@github.com:ethz-asl/voxblox.git
 - git:
-    local-name: Kimera-Semantics
-    uri: git@github.com:MIT-SPARK/Kimera-Semantics.git
+    local-name: Kimera-Semantics-on-ADE20K
+    uri: git@github.com:pranay731/Kimera-Semantics-on-ADE20K.git

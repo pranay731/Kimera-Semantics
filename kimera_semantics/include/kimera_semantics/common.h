@@ -20,7 +20,10 @@ typedef vxb::AlignedVector<SemanticLabel> SemanticLabels;
 // supports.
 // TODO(Toni): parametrize this, although that means it becomes unknown at
 // compile time...
-static constexpr size_t kTotalNumberOfLabels = 21;
+
+//Set total numbers of label. Since using ADE20K, value is 150.
+//Originally with tesse was 10
+static constexpr size_t kTotalNumberOfLabels = 150;
 typedef vxb::FloatingPoint SemanticProbability;
 typedef Eigen::Matrix<SemanticProbability, kTotalNumberOfLabels, 1>
     SemanticProbabilities;
